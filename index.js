@@ -1,9 +1,10 @@
 const express = require('express')
 const fs = require('fs')
 const csvParser = require('csv-parser')
+const { response } = require('express')
 //const csvWriter = require('csv-writer').createObjectCsvWriter
 
-const FILE = 'data/notas_pruebas.csv'
+const FILE = 'data/test_notas.csv'
 const CSV_SEPARATOR = ';'
 
 //const header = csvWriter({
@@ -48,44 +49,49 @@ let notas = [
 
 const app = express()
 
+app.get('/', function (request, response) {
+    //res.send('Hello World')
+    response.json( notas )
+}) 
+
 app.get('/all-notes', function (request, response) {
   //res.send('Hello World')
   response.json( notas )
 }) 
 
-app.get('/note/:id', function (request, response) {
 
-    var id = parseInt( request.params.id )
-    //var note = notas.find( note => note.id == id )
-    //response.json( note ) 
-    var nota = getNotaById( id )
-    console.log( nota )
+app.get('/nota/:id', function(request, response) {
     
+    var id = parseInt(request.params.id)
+    obtenerNotaDesdeId(id, function(nota){
+        response.json( nota )
+    })
+
 })
 
+function obtenerNotaDesdeId (id, callback) {
 
-function getNotaById ( nId ) {
-    
     let results = []
-    
     fs.createReadStream( FILE )
     .on('error', () => {
-        // code...
+        console.log('No existe la nota solicitada.')
     })
     .pipe( csvParser({ separator: CSV_SEPARATOR}) )
-    .on('data', (row) => { results.push(row) })
+    .on('data', (row) => { 
+        results.push(row) 
+    })
     .on('end', () => {
-        
-        var n = results.find( n => n.id == 1)
-        //console.log( n )
-        return n
+        console.log( id )
+        var nota = results.find( nota => nota.id == id)
+        if ( nota == undefined ) {
+            console.log('No se ha encontrado la nota solicitada.')
+        } else {
+            console.log( nota )
+            callback( nota )
+        }
 
     })
-
 }
 
-//header
-//    .writeRecords(notas)
-//    .then(()=> console.log('The CSV file was written successfully'))
 
 app.listen(3001)
