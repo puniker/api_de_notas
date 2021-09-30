@@ -8,8 +8,8 @@ const csvParser = require('csv-parser')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter
 
 // modulos propios
+const notas = require( './modules/notas' )
 const routes = require('./routes')
-const dataAction = require('./modules/data-action')
 
 const API_ERROR_ACCESO_DENEGADO = {
     error: 403,
@@ -24,8 +24,9 @@ const API_ERROR_NOTA_UNDEFINED = {
 const app = express()
 //console.log(routes.session)
 //app.get('/session', routes.session) 
-var n = dataAction.getNota.result( '4e9eb64e-a185-4076-862a-15786b1eecdf' )
-console.log( n )
+//notas.getNota( '4e9eb64e-a185-4076-862a-15786b1eecdf', function( notas ) {
+//    console.log( notas )
+//} )
 
 app.use('/session', routes.session )
 
@@ -33,6 +34,7 @@ app.get('/', function (request, response) {
     response.send('Bienvenido a la API de Notas. Vas a necesitar una api_key para acceder aquí.')
 }) 
 
+/*
 app.get('/api/notes', function (request, response) {
 
     user_key = request.query.key
@@ -49,7 +51,7 @@ app.get('/api/notes', function (request, response) {
     })
 
 })
-
+*/
 app.get('/api/notes/write', function( request, response) {
     
     user_key = request.query.key

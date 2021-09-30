@@ -1,14 +1,7 @@
 
-```js
-const express = require('express')
-const app = express()
+## Información del proyecto
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
-
-app.listen(3000)
-```
+Bienvenido a mi proyecto de API de Notas.
 
 ## Installation
 
@@ -24,7 +17,6 @@ $ npm install
 $ npm run dev
 ```
 
-
 ## Iniciar servidor
 
 ```bash
@@ -32,6 +24,8 @@ $ npm start
 ```
 
 ## Obtener nota
+
+Para obtener un listado de todas las notas se puede pasar el valor undefined en el ID de la nota
 
 ```js
 
