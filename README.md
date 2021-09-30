@@ -31,6 +31,10 @@ Para obtener un listado de todas las notas se puede pasar el valor undefined en 
 
 const notas = require( './modules/notas' )
 
+```
+
+```js
+
 notas.getNota( 'id de la nota', function( notas ) {
     // code ... 
 } )
