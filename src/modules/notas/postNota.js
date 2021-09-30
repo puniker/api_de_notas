@@ -1,0 +1,62 @@
+const fs = require('fs')
+const csvParser = require('csv-parser')
+const createCsvWriter = require('csv-writer').createObjectCsvWriter
+const dateTime = require('node-datetime');
+const { v4: uuidv4 } = require('uuid');
+const notas = require( '../notas/getNota' )
+const dotenv = require('dotenv').config().parsed
+
+
+const FILE = 'data/test_notas.csv'
+const CSV_SEPARATOR = ',' 
+
+module.exports = 
+    function ( ndata, callback) {
+        //console.log ( id )
+        //obtenerNota( id, function( notas ) {
+        //    callback( notas )
+        //} )
+        registrarNota ( ndata, function( n ) {
+            callback( n )
+        })
+    }
+
+
+let results = []
+
+function registrarNota ( data, callback ) {
+    
+    //var user_notaId = request.query.id
+    notas( undefined, function( notas ) {
+        let all_notas = notas
+        console.log( all_notas )
+
+        var addNota = {
+            'id': uuidv4(),
+            'titulo': data.titulo,
+            'descripcion': data.descripcion,
+            'estado': data.estado,
+            'fecha': dateTime.create().format('Y-m-d H:M:S'),
+            'user': data.user
+        }
+        all_notas.push( addNota )
+        console.log( all_notas )
+
+        var csvWriter = createCsvWriter({
+            path: dotenv.DATA_FILE,
+            header: [
+                {id: 'id', title: 'id'},
+                {id: 'titulo', title: 'titulo'},
+                {id: 'descripcion', title: 'descripcion'},
+                {id: 'estado', title: 'estado'},
+                {id: 'fecha', title: 'fecha'},
+                {id: 'user', title: 'user'},
+            ]
+        })
+        csvWriter
+        .writeRecords(all_notas)
+        .then(()=> console.log('The CSV file was written successfully'));
+        callback(all_notas)
+    } )
+
+}

@@ -8,7 +8,7 @@ const csvParser = require('csv-parser')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter
 
 // modulos propios
-const notas = require( './modules/notas' )
+//const notas = require( './modules/notas' )
 const routes = require('./routes')
 
 const API_ERROR_ACCESO_DENEGADO = {
@@ -29,6 +29,7 @@ const app = express()
 //} )
 
 app.use('/session', routes.session )
+app.use('/post-nota', routes.postNota )
 
 app.get('/', function (request, response) {
     response.send('Bienvenido a la API de Notas. Vas a necesitar una api_key para acceder aquí.')
