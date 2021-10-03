@@ -1,28 +1,19 @@
 const fs = require('fs')
-const csvParser = require('csv-parser')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter
-const dateTime = require('node-datetime');
-const { v4: uuidv4 } = require('uuid');
 const notas = require( '../notas/getNota' )
 const dotenv = require('dotenv').config().parsed
 
-const FILE = 'data/test_notas.csv'
 
 module.exports = 
-    function ( data, callback) {
+    function ( id, callback) {
+
         notas( undefined, function( notas ) {
             let all_notas = notas
-            var addNota = {
-                'id': uuidv4(),
-                'titulo': data.titulo,
-                'descripcion': data.descripcion,
-                'estado': data.estado,
-                'fecha': dateTime.create().format('Y-m-d H:M:S'),
-                'user': data.user
-            }
-            all_notas.push( addNota )
-            console.log( addNota )
 
+            var nota = all_notas.find( nota => nota.id == id)
+            //console.log( all_notas.indexOf( nota ) )
+            all_notas.splice( nota, 1)
+            console.log( all_notas )
             var csvWriter = createCsvWriter({
                 path: dotenv.DATA_FILE,
                 header: [ 
@@ -39,4 +30,5 @@ module.exports =
             .then(()=> console.log('The CSV file was written successfully'));
             callback(all_notas)
         } )
+
     }

@@ -1,8 +1,10 @@
-const session = require('./session')
-const postNota = require('./postNota')
+const getNotas = require('./getNotas')
+const saveNota = require('./saveNota')
+const deleteNota = require('./deleteNota')
 
 
 module.exports = { 
-    session,
-    postNota,
+    getNotas,
+    saveNota,
+    deleteNota,
 }
