@@ -1,8 +1,7 @@
 const dotenv = require('dotenv').config().parsed
 const express = require('express')
-//const dateTime = require('node-datetime');
 // modulos propios
-const routes = require('./routes')
+const routes = require('@routes')
 
 const app = express()
 

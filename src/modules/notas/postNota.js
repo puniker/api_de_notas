@@ -1,10 +1,10 @@
+const dotenv = require('dotenv').config().parsed
 const fs = require('fs')
+const dateTime = require('node-datetime');
 const csvParser = require('csv-parser')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter
-const dateTime = require('node-datetime');
 const { v4: uuidv4 } = require('uuid');
-const notas = require( '../notas/getNota' )
-const dotenv = require('dotenv').config().parsed
+const notas = require( './getNota' )
 
 const FILE = 'data/test_notas.csv'
 

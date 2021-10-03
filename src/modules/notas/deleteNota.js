@@ -1,7 +1,7 @@
+const dotenv = require('dotenv').config().parsed
 const fs = require('fs')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter
-const notas = require( '../notas/getNota' )
-const dotenv = require('dotenv').config().parsed
+const notas = require( './getNota' )
 
 
 module.exports = 

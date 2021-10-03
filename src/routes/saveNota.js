@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const notas = require( '../modules/notas' )
+const notas = require( '@notas' )
 
 app.get('/', function (request, response) {
     var ndata = []

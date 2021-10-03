@@ -5,10 +5,19 @@ Bienvenido a mi proyecto de API de Notas.
 
 ## Instalación
 
-Instalamos todas las dependencias
+Instalamos todas las dependencias y el script de postinstalación.
 
 ```bash
 $ npm install
+```
+
+###### Script de postinstalación
+
+Este script crea enlaces simbólicos de los módulos de la app en la carpeta node_modules para poder importarlos sin rutas relativas en el proyecto. 
+Si el comando anterior no ha ejecutado el script de postinstalación, hay que ajecutarlo manualmente.
+
+```bash
+$ npm install postinstall
 ```
 
 ## Iniciar servidor en modo desarrollo
@@ -17,7 +26,13 @@ $ npm install
 $ npm run dev
 ```
 
-## Iniciar servidor
+La aplicación corre sobre el puerto 3001, para cerrar este puerto una vez cerrada la app:
+
+```bash
+$ npm run killport
+```
+
+## Iniciar servidor en modo producción
 
 ```bash
 $ npm start
