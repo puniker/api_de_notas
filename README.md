@@ -41,10 +41,10 @@ $ npm start
 ## Variables de entorno
 
 Las variables de entorno se guardan en el fichero **.env** en la raiz del repositorio. Las variables que se usan son las siguientes:
-    ** PORT: Puerto en el que se ejecuta la app.
-    ** KEY_FILE: Ruta del fichero con las claves de usuario de la API.
-    ** DATA_FILE: Ruta del fichero con las notas.
-    ** CSV_SEPARATOR: Separador de datos en los ficheros CSV. **(Esta variable de entorno se eliminará en futuras versiones)**
+- PORT: Puerto en el que se ejecuta la app.
+- KEY_FILE: Ruta del fichero con las claves de usuario de la API.
+- DATA_FILE: Ruta del fichero con las notas.
+- CSV_SEPARATOR: Separador de datos en los ficheros CSV. **(Esta variable de entorno se eliminará en futuras versiones)**
 
 ## Funciones
 
@@ -70,10 +70,10 @@ notas.getNota( id_de_la_nota, function( notas ) {
 
 Para publicar una nota hay que pasar a la función postNota los siguientes parámetros mediante el método GET:
 
-    - título
-    - descripcion
-    - estado
-    - user
+- título
+- descripcion
+- estado
+- user
 
 Tanto la fecha como el id de la nota los asignará la API automaticamente
 
@@ -108,3 +108,8 @@ notas.deleteNota( id_de_la_nota, function( notas ) {
 } )
 
 ```
+
+## Futuras actualizaciones
+
+- Funcionalidad de API Keys para los usuarios
+- Eliminar varias notas a la vez
