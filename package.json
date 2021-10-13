@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon api/src/index.js",
     "killport": "npx kill-port 3001",
     "postinstall": "link-module-alias",
-    "start": "node src/index.js",
+    "start": "node api/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -27,7 +27,7 @@
     "uuid": "8.3.2"
   },
   "_moduleAliases": {
-    "@notas": "src/modules/notas/index.js",
-    "@routes": "src/routes/index.js"
+    "@notas": "api/src/modules/notas/index.js",
+    "@routes": "api/src/routes/index.js"
   }
 }
