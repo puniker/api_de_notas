@@ -1,7 +1,7 @@
 
 ## Información del proyecto
 
-Bienvenido a mi proyecto de API de Notas.
+Bienvenido a mi proyecto de API de Notas. La parte de la app se ha desarrollado con React y Vite
 
 ## Instalación
 
@@ -20,7 +20,7 @@ Si el comando anterior no ha ejecutado el script de postinstalación, hay que aj
 $ npm install postinstall
 ```
 
-## Iniciar servidor en modo desarrollo
+## Iniciar API en desarrollo
 
 ```bash
 $ npm run dev
@@ -32,10 +32,16 @@ La aplicación corre sobre el puerto 3001, para cerrar este puerto una vez cerra
 $ npm run killport
 ```
 
-## Iniciar servidor en modo producción
+## Iniciar API en producción
 
 ```bash
 $ npm start
+```
+
+## Iniciar APP en desarrollo
+
+```bash
+$ npm run app_dev
 ```
 
 ## Variables de entorno
