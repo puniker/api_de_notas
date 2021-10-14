@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "link-module-alias",
-    "killport": "npx kill-port 3001",
+    "killport": "npx kill-port 3080",
     "app_dev": "vite app",
     "app_build": "vite build app",
     "app_serve": "vite preview app",
