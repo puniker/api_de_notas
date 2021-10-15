@@ -1,6 +1,5 @@
 import { useState } from 'react' 
 import logo from '../images/logo.svg'
-import '../css/App.css'
 
 function ViteApp ( props ) {
 
