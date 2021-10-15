@@ -1,15 +1,13 @@
-import { useState } from 'react'
 import './css/custom.css'
-import Header from './components/Header'
-import Formulario from './components/Formulario'
-import Notas from './components/Notas'
+import ListadoNotas from './components/Notas/ListadoNotas'
+import GuardarNota from './components/Notas/GuardarNota'
 
 function App() {
 
   return (
     <div className="App">
-      <Formulario />
-      <Notas />
+      <GuardarNota />
+      <ListadoNotas />
     </div>
   )
 }
