@@ -27,4 +27,6 @@ app.use('/save-nota', routes.saveNota )
 app.use('/delete-nota', routes.deleteNota )
 
 
-app.listen( dotenv.PORT )
+app.listen( process.env.PORT || dotenv.PORT, () => {
+    console.log('API levantada en el puerto ' + process.env.PORT )
+} )
