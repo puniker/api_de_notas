@@ -22,7 +22,7 @@ app.get('/', function (request, response) {
 
 app.use(cors())
 
-app.use('/get-notas', routes.getNotas )
+app.use(routes.getNotas )
 app.use('/save-nota', routes.saveNota )
 app.use('/delete-nota', routes.deleteNota )
 
